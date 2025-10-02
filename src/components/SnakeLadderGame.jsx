@@ -153,7 +153,10 @@ const SnakeLadderGame = () => {
     }
 
     // Initialize socket connection
-    const newSocket = io('http://localhost:3001', {
+    const socketUrl = window.location.hostname === 'localhost' 
+      ? 'http://localhost:3001' 
+      : 'https://game-5fs1.onrender.com';
+    const newSocket = io(socketUrl, {
       transports: ['websocket']
     });
 
